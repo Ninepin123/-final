@@ -50,8 +50,54 @@ if (isset($_GET["action"]) && $_GET["action"] == "clear_cart") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>購物車</title>
     <!-- 引入 Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css
-    " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+        h1 {
+            color: #343a40;
+        }
+        .table {
+            margin-top: 20px;
+        }
+        .btn {
+            border-radius: 20px;
+        }
+        footer {
+            background-color: #222529;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .item-img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 10px;
+        }
+        .item-name {
+            display: flex;
+            align-items: center;
+        }
+        td:nth-child(3) {
+            width: 15%;
+        }
+    </style>
 </head>
 <body>
     <div class="container py-5">
@@ -76,7 +122,10 @@ if (isset($_GET["action"]) && $_GET["action"] == "clear_cart") {
                         $grand_total += $total_price;
                     ?>
                         <tr>
-                            <td><?= htmlspecialchars($item["name"]) ?></td>
+                            <td class="item-name">
+                                <img src="assets/<?= htmlspecialchars($item_id) ?>.png" alt="商品圖片" class="item-img">
+                                <?= htmlspecialchars($item["name"]) ?>
+                            </td>
                             <td>$<?= number_format($item["price"], 2) ?></td>
                             <td><?= $item["quantity"] ?></td>
                             <td>$<?= number_format($total_price, 2) ?></td>
@@ -97,5 +146,9 @@ if (isset($_GET["action"]) && $_GET["action"] == "clear_cart") {
             <a href="index.php" class="btn btn-primary">回到菜單</a>
         </div>
     </div>
+
+    <footer>
+        Copyright &copy; 網頁程式設計期末專題
+    </footer>
 </body>
 </html>
