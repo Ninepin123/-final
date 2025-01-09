@@ -9,8 +9,6 @@
             echo "無法連接SQL";
             exit();
         }
-        else{
-            echo "成功連接SQL";
-        }
     }
+    $select_db=@mysql_select_db("restaurant");
 ?>

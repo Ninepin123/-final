@@ -43,11 +43,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <form method="GET" action="buycar.php">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
                         </button>
                     </form>
                 </div>
@@ -94,21 +94,27 @@
             </div>
             <div class="modal-body">
                 <?php
-                    $sql_query = "select * from menu_items where category_id=1";
-                    $result = mysql_query($sql_query);
-                    echo '<center><table width=100% border=0>';
-                    $row = mysql_fetch_array($result);
-                    echo '<tr>';
-                    $cnt = 0;
-                    while($row = mysql_fetch_array($result)){
-                        $cnt++;
-                        if($cnt%6==0){
-                            echo '<tr>';
-                        }
-                        echo '<td width=20%><center><img src=assets/'.$row[0].'.png width=100 hight=100><br>';
-                        echo $row[1];
+                // 連接資料庫並查詢資料
+                $sql_query = "SELECT * FROM menu_items WHERE category_id=1";
+                $result = mysql_query($sql_query);
+
+                echo '<center><table width="100%" border="0">';
+                $cnt = 0;
+                while ($row = mysql_fetch_array($result)) {
+                    $cnt++;
+                    if ($cnt % 5 == 0) {
+                        echo '<tr>';
                     }
-                    echo '</table>';
+                    echo '<td width="20%" style="text-align: center;">';
+                    echo '<img src="assets/' . $row['id'] . '.png" width="100" height="100" class="menu-item" data-id="' . $row['id'] . '" data-name="' . $row['name'] . '" data-price="' . $row['price'] . '" style="cursor: pointer;"><br>';
+                    echo $row['name'] . '<br>';
+                    echo '$' . $row['price'];
+                    echo '</td>';
+                    if ($cnt % 5 == 0) {
+                        echo '</tr>';
+                    }
+                }
+                echo '</table>';
                 ?>
             </div>
             <div class="modal-footer">
@@ -144,21 +150,27 @@
             </div>
             <div class="modal-body">
                 <?php
-                    $sql_query = "select * from menu_items where category_id=2";
-                    $result = mysql_query($sql_query);
-                    echo '<center><table width=100% border=0>';
-                    $row = mysql_fetch_array($result);
-                    echo '<tr>';
-                    $cnt = 0;
-                    while($row = mysql_fetch_array($result)){
-                        $cnt++;
-                        if($cnt%5==0){
-                            echo '<tr>';
-                        }
-                        echo '<td width=20%><center><img src=assets/'.$row[0].'.png width=100 hight=100><br>';
-                        echo $row[1];
+                // 連接資料庫並查詢資料
+                $sql_query = "SELECT * FROM menu_items WHERE category_id=2";
+                $result = mysql_query($sql_query);
+
+                echo '<center><table width="100%" border="0">';
+                $cnt = 0;
+                while ($row = mysql_fetch_array($result)) {
+                    $cnt++;
+                    if ($cnt % 5 == 0) {
+                        echo '<tr>';
                     }
-                    echo '</table>';
+                    echo '<td width="20%" style="text-align: center;">';
+                    echo '<img src="assets/' . $row['id'] . '.png" width="100" height="100" class="menu-item" data-id="' . $row['id'] . '" data-name="' . $row['name'] . '" data-price="' . $row['price'] . '" style="cursor: pointer;"><br>';
+                    echo $row['name'] . '<br>';
+                    echo '$' . $row['price'];
+                    echo '</td>';
+                    if ($cnt % 5 == 0) {
+                        echo '</tr>';
+                    }
+                }
+                echo '</table>';
                 ?>
             </div>
             <div class="modal-footer">
@@ -194,20 +206,27 @@
             </div>
             <div class="modal-body">
                 <?php
-                    $sql_query = "select * from menu_items where category_id=3";
-                    $result = mysql_query($sql_query);
-                    echo '<center><table width=100% border=0>';
-                    echo '<tr>';
-                    $cnt = 0;
-                    while($row = mysql_fetch_array($result)){
-                        $cnt++;
-                        if($cnt%5==0){
-                            echo '<tr>';
-                        }
-                        echo '<td width=20%><center><img src=assets/'.$row[0].'.png width=100 hight=100><br>';
-                        echo $row[1];
+                // 連接資料庫並查詢資料
+                $sql_query = "SELECT * FROM menu_items WHERE category_id=3";
+                $result = mysql_query($sql_query);
+
+                echo '<center><table width="100%" border="0">';
+                $cnt = 0;
+                while ($row = mysql_fetch_array($result)) {
+                    $cnt++;
+                    if ($cnt % 5 == 0) {
+                        echo '<tr>';
                     }
-                    echo '</table>';
+                    echo '<td width="20%" style="text-align: center;">';
+                    echo '<img src="assets/' . $row['id'] . '.png" width="100" height="100" class="menu-item" data-id="' . $row['id'] . '" data-name="' . $row['name'] . '" data-price="' . $row['price'] . '" style="cursor: pointer;"><br>';
+                    echo $row['name'] . '<br>';
+                    echo '$' . $row['price'];
+                    echo '</td>';
+                    if ($cnt % 5 == 0) {
+                        echo '</tr>';
+                    }
+                }
+                echo '</table>';
                 ?>
             </div>
             <div class="modal-footer">
@@ -244,20 +263,27 @@
             </div>
             <div class="modal-body">
                 <?php
-                    $sql_query = "select * from menu_items where category_id=4";
-                    $result = mysql_query($sql_query);
-                    echo '<center><table width=100% border=0>';
-                    echo '<tr>';
-                    $cnt = 0;
-                    while($row = mysql_fetch_array($result)){
-                        $cnt++;
-                        if($cnt%5==0){
-                            echo '<tr>';
-                        }
-                        echo '<td width=20%><center><img src=assets/'.$row[0].'.png width=100 hight=100><br>';
-                        echo $row[1];
+                // 連接資料庫並查詢資料
+                $sql_query = "SELECT * FROM menu_items WHERE category_id=4";
+                $result = mysql_query($sql_query);
+
+                echo '<center><table width="100%" border="0">';
+                $cnt = 0;
+                while ($row = mysql_fetch_array($result)) {
+                    $cnt++;
+                    if ($cnt % 5 == 0) {
+                        echo '<tr>';
                     }
-                    echo '</table>';
+                    echo '<td width="20%" style="text-align: center;">';
+                    echo '<img src="assets/' . $row['id'] . '.png" width="100" height="100" class="menu-item" data-id="' . $row['id'] . '" data-name="' . $row['name'] . '" data-price="' . $row['price'] . '" style="cursor: pointer;"><br>';
+                    echo $row['name'] . '<br>';
+                    echo '$' . $row['price'];
+                    echo '</td>';
+                    if ($cnt % 5 == 0) {
+                        echo '</tr>';
+                    }
+                }
+                echo '</table>';
                 ?>
             </div>
             <div class="modal-footer">
@@ -266,7 +292,49 @@
         </div>
     </div>
 </div>
-                    
+<!-- 動態彈窗 (數量輸入) -->
+<div class="modal fade" id="quantityModal" tabindex="-1" aria-labelledby="quantityModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="get" action="buycar.php">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quantityModalLabel">輸入數量</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="item-name"></p>
+                    <input type="hidden" name="item_id" id="item-id">
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">數量</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">送出</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- JavaScript -->
+<script>
+    // 當點擊商品圖片時，彈出數量輸入框
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const itemId = this.dataset.id;
+            const itemName = this.dataset.name;
+
+            // 設定彈窗內容
+            document.getElementById('item-id').value = itemId;
+            document.getElementById('item-name').innerText = "商品名稱: " + itemName;
+
+            // 顯示數量輸入的彈窗
+            const quantityModal = new bootstrap.Modal(document.getElementById('quantityModal'));
+            quantityModal.show();
+        });
+    });
+</script>                  
                 </div>
                 
             </div>
